@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -y \
     apache2 mariadb-client \
     php8.2 php8.2-curl php8.2-cli php8.2-common php8.2-mysql \
     php8.2-gd php8.2-mbstring php8.2-intl php8.2-xml php-pear \
-    nodejs npm cron logrotate \
+    nodejs npm cron logrotate plocate iproute2 net-tools \
+    telnet netcat-openbsd lsof \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Build Asterisk from Source

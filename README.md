@@ -122,6 +122,14 @@ docker exec freepbx ss -tlnp | grep 80
 docker exec freepbx tail -20 /var/log/apache2/error.log
 ```
 
+### FreePBX unable to connect to Asterisk
+docker exec freepbx bash
+```bash
+asterisk -rx "manager restart"
+# Get username/password from /etc/asterisk/manager.conf
+printf "Action: Login\r\nUsername: username\r\nSecret: password\r\n\r\n" | nc 127.0.0.1 5038
+```
+
 ### SIP registration failing
 - Ensure UDP 5060 and 10000-20000 aren't blocked by firewall
 - Check `Asterisk SIP Settings` in FreePBX for correct external IP
